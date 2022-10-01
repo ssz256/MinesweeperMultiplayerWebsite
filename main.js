@@ -16,7 +16,7 @@ function login(nickname)
     }
 
     if ("WebSocket" in window) {
-        ws = new WebSocket("wss://wss.minesweeper.ziekujemynev.me:2137");
+        ws = new WebSocket("wss://wss.minesweeper.ziekujemynev.me:443");
 
     	ws.onopen = function() {
             ws.send(`0.${nickname}`);
