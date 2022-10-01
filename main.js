@@ -23,8 +23,16 @@ function login(nickname)
         }
 
         ws.onmessage = function (evt) { 
-            const received_msg = evt.data;
-            console.log(`Recieved: ${received_msg}`)
+            const data = evt.data;
+            console.log(`Recieved: ${data}`)
+            const opcode = data.split(".")[0];
+            const content = data.split(".").slice(1).join(".");
+            switch(opcode)
+            {
+                case "1":
+                    token = content;
+                    break;
+            }
         }
 
         ws.onclose = function() { 
